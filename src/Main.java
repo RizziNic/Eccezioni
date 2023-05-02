@@ -49,7 +49,7 @@ public class Main {
 
         Scanner input = new Scanner(System.in);
         boolean controllo = false;
-        while(false){
+        while(controllo = false){
             try{
                 int op1 = primo();
                 int op2 = secondo();
@@ -82,7 +82,9 @@ public class Main {
                 controllo = true;
             } catch (Exception e){
                 System.out.println("Il tipo deve essere un INTERO, reinseriscilo: ");
+                controllo = true;
             }
+
         }
 
     }
