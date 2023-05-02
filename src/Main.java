@@ -48,11 +48,13 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
-        try{
-            int op1 = primo();
-            int op2 = secondo();
-            char operatore = operatore();
-
+        boolean controllo = false;
+        while(false){
+            try{
+                int op1 = primo();
+                int op2 = secondo();
+                char operatore = operatore();
+            /*
             try{
             switch (operatore){
 
@@ -75,11 +77,13 @@ public class Main {
             }catch(Exception e){
                 System.out.println("Operatore sbagliato");
             }
-        } catch (Exception e){
-            System.out.println("Il tipo non è compatibile, reinseriscilo: ");
-            int op1 = primo();
-            int op2 = secondo();
-            char operatore = operatore();
+
+             */
+                controllo = true;
+            } catch (Exception e){
+                System.out.println("Il tipo deve essere un INTERO, reinseriscilo: ");
+            }
         }
+
     }
 }
