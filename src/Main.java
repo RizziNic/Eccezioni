@@ -1,7 +1,19 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
-    public static char operatore(){
+
+    public static char getoperatore(char operatore){
+        return operatore;
+    }
+    public static int getop2(int op2){
+        return op2;
+    }
+
+    public static int getop1(int op1){
+        return op1;
+    }
+    public static char operatore() {
         Scanner reader = new Scanner(System.in);
 
         System.out.print("Operatore: ");
@@ -10,7 +22,8 @@ public class Main {
 
         return operatore;
     }
-    public static int secondo(){
+
+    public static int secondo() {
         Scanner input = new Scanner(System.in);
 
         System.out.print("Secondo operando: ");
@@ -19,7 +32,8 @@ public class Main {
 
         return op2;
     }
-    public static int primo(){
+
+    public static int primo() {
         Scanner input = new Scanner(System.in);
 
         System.out.print("Primo operando: ");
@@ -28,64 +42,73 @@ public class Main {
 
         return op1;
     }
-    public static double divisione(int op1, int op2){
-        double quoziente = op1/op2;
+
+    public static double divisione(int op1, int op2) {
+        double quoziente = op1 / op2;
         return quoziente;
     }
-    public static int moltiplicazione(int op1, int op2){
-        int prodotto = op1*op2;
+
+    public static int moltiplicazione(int op1, int op2) {
+        int prodotto = op1 * op2;
         return prodotto;
     }
-    public static int sottrazione(int op1, int op2){
+
+    public static int sottrazione(int op1, int op2) {
         int differenza = op1 - op2;
         return differenza;
     }
-    public static int somma(int op1, int op2){
+
+    public static int somma(int op1, int op2) {
         int somma = op1 + op2;
         return somma;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InputMismatchException, ArithmeticException {
 
         Scanner input = new Scanner(System.in);
         boolean controllo = false;
-        while(controllo = false){
-            try{
-                int op1 = primo();
-                int op2 = secondo();
-                char operatore = operatore();
-            /*
-            try{
-            switch (operatore){
+
+        int op1 = 0;
+        int op2 = 0;
+        char operatore = 0;
+
+        try {
+             op1 = primo();
+             op2 = secondo();
+             operatore = operatore();
+
+        } catch (Exception e) {
+            System.out.println("Il tipo deve essere un INTERO, reinseriscilo");
+            main(args);
+        }
+
+        try {
+            getop1(op1);
+            getop2(op2);
+            getoperatore(operatore);
+
+            switch (operatore) {
 
                 case '+':
                     System.out.println(somma(op1, op2));
                     break;
 
                 case '-':
-                    System.out.println(sottrazione(op1,op2));
+                    System.out.println(sottrazione(op1, op2));
                     break;
 
                 case '*':
-                    System.out.println(moltiplicazione(op1,op2));
+                    System.out.println(moltiplicazione(op1, op2));
                     break;
 
                 case '/':
                     System.out.println(divisione(op1, op2));
                     break;
             }
-            }catch(Exception e){
-                System.out.println("Operatore sbagliato");
-            }
-
-             */
-                controllo = true;
-            } catch (Exception e){
-                System.out.println("Il tipo deve essere un INTERO, reinseriscilo: ");
-                controllo = true;
-            }
-
+        } catch (Exception e) {
+            System.out.println("L'operazione non è matematicamente possibile, immetti di nuovo i valori");
+            main(args);
         }
-
     }
+
 }
